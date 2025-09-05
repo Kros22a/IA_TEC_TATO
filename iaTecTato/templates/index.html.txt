@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Demo Texto (HF + Flask)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:800px;margin:40px auto;padding:0 16px;}
+    textarea{width:100%;min-height:120px;padding:8px;}
+    .out{white-space:pre-wrap;background:#f6f8fa;padding:12px;border-radius:8px;margin-top:8px;}
+    button{padding:8px 14px;border:0;border-radius:8px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <h1>Generador de texto</h1>
+  <form method="POST">
+    <label for="text">Prompt</label><br>
+    <textarea id="text" name="text" placeholder="Escribe algo..." required>{{ prompt or "" }}</textarea><br><br>
+    <button type="submit">Generar</button>
+  </form>
+
+  {% if result %}
+    <h2>Resultado</h2>
+    <div class="out">{{ result }}</div>
+  {% endif %}
+
+  <p><small>Endpoint de salud: <code>/healthz</code> · Warmup: <code>POST /warmup</code></small></p>
+</body>
+</html>
