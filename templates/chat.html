@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat de Hardware</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; }
+        .chat-box { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: scroll; }
+        .user { color: blue; margin: 5px 0; }
+        .bot { color: green; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Asistente de Hardware</h1>
+    <div class="chat-box">
+        {% if user_message %}
+            <p class="user"><b>Tú:</b> {{ user_message }}</p>
+            <p class="bot"><b>IA:</b> {{ bot_response }}</p>
+        {% endif %}
+    </div>
+    <form method="POST" action="/chat">
+        <input type="text" name="message" placeholder="Hazme una pregunta sobre hardware..." style="width:80%">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
